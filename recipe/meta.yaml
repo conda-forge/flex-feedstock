@@ -23,7 +23,6 @@ build:
 
 requirements:
   build:
-    - autoconf
     - automake
     - libiconv
     - libtool
