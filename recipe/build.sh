@@ -19,11 +19,14 @@ if [[ "${CONDA_BUILD_CROSS_COMPILATION}" == "1" ]]; then
   CONFIGURE_ARGS="${CONFIGURE_ARGS} --disable-bootstrap"
 fi
 
+if [[ "$target_platform" != "win-64" ]]; then
+  # ./configure doesn't know our target `amd64-pc-windows`
+  CONFIGURE_ARGS="${CONFIGURE_ARGS} --host=${HOST} --build=${BUILD}"
+fi
+
 ./configure \
     ${CONFIGURE_ARGS} \
-    --prefix="${PREFIX}" \
-    --host=${HOST} \
-    --build=${BUILD}
+    --prefix="${PREFIX}"
 
 [[ "$target_platform" == "win-64" ]] && patch_libtool
 
