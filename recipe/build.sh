@@ -1,4 +1,5 @@
 #!/bin/bash
+set -ex
 
 autoreconf -vfi
 
@@ -24,6 +25,8 @@ fi
 ./configure --prefix="$PREFIX"  \
             --host=${HOST}      \
             --build=${BUILD} ${CONFIGURE_ARGS}
+
+[[ "$target_platform" == "win-64" ]] && patch_libtool
 
 make -j${CPU_COUNT} ${VERBOSE_AT}
 if [[ "${CONDA_BUILD_CROSS_COMPILATION}" != "1" ]]; then
