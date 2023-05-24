@@ -17,6 +17,7 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - autotools_clang_conda  # [win]
+    - m2-pcre                # [win]
     - automake  # [unix]
     - libtool   # [unix]
     - m4        # [unix]
