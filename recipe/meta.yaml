@@ -40,11 +40,12 @@ test:
     - test -f ${PREFIX}/lib/libfl${SHLIB_EXT}  # [not win]
 
 about:
-  home: http://flex.sourceforge.net/
+  home: https://github.com/westes/flex
   license: BSD 2-Clause
   license_file: COPYING
   license_family: BSD
   summary: The Fast Lexical Analyzer
+  dev_url: https://github.com/westes/flex
 
 extra:
   recipe-maintainers:
