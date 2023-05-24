@@ -14,17 +14,16 @@ fi
 # TODO: do this in the compiler package
 export ac_cv_func_realloc_0_nonnull=yes
 
+CONFIGURE_ARGS=""
 if [[ "${CONDA_BUILD_CROSS_COMPILATION}" == "1" ]]; then
   CONFIGURE_ARGS="${CONFIGURE_ARGS} --disable-bootstrap"
 fi
 
-if [[ ${HOST} =~ .*linux.* ]]; then
-    export CC=${GCC}
-fi
-
-./configure --prefix="$PREFIX"  \
-            --host=${HOST}      \
-            --build=${BUILD} ${CONFIGURE_ARGS}
+./configure \
+    ${CONFIGURE_ARGS} \
+    --prefix="${PREFIX}" \
+    --host=${HOST} \
+    --build=${BUILD}
 
 [[ "$target_platform" == "win-64" ]] && patch_libtool
 
