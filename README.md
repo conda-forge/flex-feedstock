@@ -5,7 +5,7 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/flex-feedstock/
 
 Home: https://github.com/westes/flex
 
-Package license: BSD 2-Clause
+Package license: BSD-2-Clause
 
 Summary: The Fast Lexical Analyzer
 
