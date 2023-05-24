@@ -1,7 +1,7 @@
 #!/bin/bash
 set -ex
 
-autoreconf -vfi
+[[ "$target_platform" != "win-64" ]] && autoreconf -vfi
 
 # skip the creation of man pages by faking existance of help2man
 if [ `uname` == Darwin ]; then
